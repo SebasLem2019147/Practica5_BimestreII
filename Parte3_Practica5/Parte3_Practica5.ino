@@ -12,8 +12,7 @@
    Link de la simulación en Tinkercad: https://www.tinkercad.com/things/lm2seBApzSo-parte-3-practica-5-bimestre-ii?sharecode=tWsjKVrQutsrC_deecbt-q0YOQRXhcaexioeSZmtrYc
    
 */
-
-
+ 
 int foco = A0;
 int tiempo = 1000;
 const int A = 2;
@@ -37,7 +36,7 @@ const int numeros[10][N] = {
   {0, 0, 0, 0}
 };
 
-void lanzamiento_misil(){
+void simulador_misil(){
   for (int j = 0; j < 10; j++) {
     for (int k = 0; k < N; k++) { 
       digitalWrite(entradas[k], numeros[j][k]);
@@ -48,19 +47,17 @@ void lanzamiento_misil(){
     digitalWrite(entradas[k], HIGH);
   }
   tone(10, 250);
-  delay(tiempo/2);
-  noTone(10);
-  digitalWrite(foco, LOW);
-  delay(tiempo*3);
   digitalWrite(foco, HIGH);
-  delay(tiempo);
+  delay(tiempo*3);
+  digitalWrite(foco, LOW);
+  noTone(10);
   delay(tiempo*5);
 }
 
 void setup(){
   pinMode(foco, OUTPUT);
-  digitalWrite(foco, HIGH);
-  digitalWrite(10, OUTPUT);
+  digitalWrite(foco, LOW);
+  pinMode(10, OUTPUT);
   for (int i = 0; i < N; i++) {              
     pinMode(entradas[i], OUTPUT);
     digitalWrite(entradas[i], HIGH);
@@ -68,5 +65,5 @@ void setup(){
 }
 
 void loop(){
-  lanzamiento_misil();
+  simulador_misil();
 }
