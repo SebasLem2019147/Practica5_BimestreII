@@ -172,5 +172,5 @@ void loop(){
   tone(PinBuzzer, Do, 125); 
   delay(175);  
   tone(PinBuzzer, la, 1000);
-  delay(1050);       
+  delay(10000);       
 }
