@@ -47,16 +47,16 @@ void simulador_misil(){
     digitalWrite(entradas[k], HIGH);
   }
   tone(10, 250);
-  digitalWrite(foco, HIGH);
-  delay(tiempo*3);
   digitalWrite(foco, LOW);
+  delay(tiempo*3);
+  digitalWrite(foco, HIGH);
   noTone(10);
   delay(tiempo*5);
 }
 
 void setup(){
   pinMode(foco, OUTPUT);
-  digitalWrite(foco, LOW);
+  digitalWrite(foco, HIGH);
   pinMode(10, OUTPUT);
   for (int i = 0; i < N; i++) {              
     pinMode(entradas[i], OUTPUT);
